@@ -1,0 +1,31 @@
+name: design_to_spec
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  # adding the src fonts
+fonts: 
+- family: Retro Computer
+  fonts: 
+    - asset: src/fonts/retro_computer_personal_use.ttf
+      style: Regular
+
+- family: VT323
+  fonts: 
+    - asset: src/fonts/VT323-Regular.ttf
+      style: Regular
+
+  uses-material-design: true
