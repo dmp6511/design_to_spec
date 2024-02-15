@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +12,9 @@ class MainApp extends StatelessWidget {
 // applying themes and fonts
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: "Retro Computer"),
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyApp(),
+      home: MyApp(),
     );
   }
 }
@@ -26,35 +27,56 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+// imgs and svgs
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // app bar features
       appBar: AppBar(
-        title: const Text("Project 1: Design to Spec"),
-        elevation: 20,
+        // pickaxe svg
+        backgroundColor: const Color(0x0f686868),
 
+        // title
+        title: const Text("Trees & Wood", textAlign: TextAlign.center),
+        elevation: 20,
         // adding the Profile Button
         actions: [
           IconButton(
-              onPressed: showAlertDialog,
-              icon: const Icon(Icons.account_circle_sharp))
+            onPressed: showAlertDialog,
+            icon: Icon(Icons.account_circle_sharp),
+            iconSize: 25,
+          )
         ],
       ),
-      body: const Column(
-        children: [
-          Center(
-            child: Text(
-              "hello world",
-              style: TextStyle(fontFamily: 'VT323'),
+      body: Container(
+        color: Color(0x0f35363d),
+        child: Column(
+          children: [
+            Image.asset(
+              "assets/images/trees.jpg",
+              width: double.infinity,
+              height: double.infinity,
             ),
-          ),
-        ],
+            // background image
+
+            // oak tree container
+            Column(children: [
+              Text('The Oak Tree'),
+              SizedBox(
+                width: 400,
+                height: 400,
+                child: Placeholder() //Image.asset('assets/images/oaktree.png',
+                   // alignment: Alignment.center),
+              ),
+            ]),
+          ],
+        ),
       ),
     );
   }
 
-  // pop dialog function
+  // popup dialog function
   void showAlertDialog() {
     showDialog(
       barrierDismissible: false,
@@ -68,11 +90,11 @@ class _MyAppState extends State<MyApp> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text("aight coo"),
+              child: const Text("OK"),
             ),
             const TextButton(
               onPressed: null,
-              child: Text("nvm bro"),
+              child: Text("Cancel"),
             ),
           ],
         );
